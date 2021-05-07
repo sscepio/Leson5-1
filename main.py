@@ -90,11 +90,26 @@ with open(r"D:\AI\text5.txt", "r", encoding="utf-8") as file8:
     dict_lesson1 = {}
     for line in text8:
         key = line.split(" ")[0]
-        value = line.split(" ")[2:]
-        dict_lesson1.update({key: value})
+        value = line.split(" ")[2]
+        value2 = line.split(" ")[3]
+        value_total = int(value) - int(value2)
+        dict_lesson1.update({key: value_total})
 print(dict_lesson1)
-
-
+count_dict = 0
+count_total = 0
+for key, value in dict_lesson1.items():
+    count_dict = value + count_dict
+    count_total = count_total + 1
+count_result = count_dict / count_total
+average_dict = {}
+average_dict.update({"average_profit": count_result})
+list_firm = list()
+list_firm.append(dict_lesson1)
+list_firm.append(average_dict)
+print(list_firm)
+list_json = list_firm.__str__()
+with open(r"D:\AI\text4.json", "w", encoding="utf-8") as file_json:
+    file_json.write(list_json)
 
 
 

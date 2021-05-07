@@ -50,3 +50,52 @@ print(f"Средняя зарплата сотавляет ", result)
 #4. Two — 2
 #4. Three — 3
 #4. Four — 4
+print("Задание 4")
+with open(r"D:\AI\text2.txt", "r", encoding="utf-8") as file4:
+    text4 = file4.read()
+    text4.replace("One", "Один")
+    text4.replace("Two", "Два")
+    text4.replace("Three", "Три")
+    text4.replace("Four", "Четыре")
+    print(text4)
+# 5. Создать (программно) текстовый файл, записать в него программно набор чисел, разделенных пробелами. Программа
+# должна подсчитывать сумму чисел в файле и выводить ее на экран.
+print("Задание 5")
+with open(r"D:\AI\text3.txt", "a+") as file6:
+    file6.write("1 2 3 4 5 6 7 8 9")
+    file6.seek(0)
+    text6 = file6.read().split(" ")
+    print(text6)
+count_result = 0
+for i in text6:
+    count_result = count_result + int(i)
+print(f"Сумма чисел равна {count_result}")
+# 6. Необходимо создать (не программно) текстовый файл, где каждая строка описывает учебный предмет и наличие
+# лекционных, практических и лабораторных занятий по этому предмету и их количество. Важно, чтобы для каждого
+# предмета не обязательно были все типы занятий. Сформировать словарь, содержащий название предмета и общее
+# количество занятий по нему. Вывести словарь на экран.
+print("Задание 6")
+with open(r"D:\AI\text4.txt", "r", encoding="utf-8") as file7:
+    text7 = file7.read().splitlines()
+    dict_lesson = {}
+    for line in text7:
+        key, value = line.split(": ")
+        dict_lesson.update({key: value})
+print(dict_lesson)
+# 7 Создать (не программно) текстовый файл, в котором каждая строка должна содержать данные о фирме: название,
+# форма собственности, выручка, издержки.
+print("Задание 7")
+with open(r"D:\AI\text5.txt", "r", encoding="utf-8") as file8:
+    text8 = file8.read().splitlines()
+    dict_lesson1 = {}
+    for line in text8:
+        key = line.split(" ")[0]
+        value = line.split(" ")[2:]
+        dict_lesson1.update({key: value})
+print(dict_lesson1)
+
+
+
+
+
+

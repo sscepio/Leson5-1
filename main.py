@@ -24,9 +24,29 @@ with open(r"D:\AI\text1.txt", "r") as file1:
 sure_name = input("Введите фамилию сотрудника ")
 salary = input("Введите оклад сотрудника в руб.")
 with open(r"D:\AI\dohod.txt", "a+") as file2:
-    file2.write(f"{sure_name}/{salary}\n")
+    file2.write(f'{sure_name} {salary}\n')
     file2.seek(0)
-    content_salary = file2.readlines()
-    print(content_salary)
-for i in content_salary:
-    print(i)
+    str = file2.read().splitlines()
+    dict = {}
+    for line in str:
+        key, value = line.split(' ')
+        dict.update({key: value})
+    print(dict)
+list_user = list()
+for k, v in dict.items():
+    if int(v) <= 20000:
+        print(f"Фамилия: {k}, зарплата: {v}")
+unit = 0
+count = 0
+result = 0
+for k, v in dict.items():
+    if int(v) <= 20000:
+       count = count + 1
+       unit = unit + int(v)
+result = unit / count
+print(f"Средняя зарплата сотавляет ", result)
+#4. Создать (не программно) текстовый файл со следующим содержимым:
+#4. One — 1
+#4. Two — 2
+#4. Three — 3
+#4. Four — 4
